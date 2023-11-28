@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>商品管理</title>
+    <!-- 这里可以添加CSS样式或引入外部样式表 -->
+</head>
+
+<body>
+    <h2>商品管理</h2>
+    <form method="POST">
+        <table>
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Op</th>
+            </tr>
+            {{range .Items}}
+            <tr>
+                <td><input type="checkbox" name="selected" value="{{.ID}}"></td>
+                <td>{{.ID}}</td>
+                <td>{{.Name}}</td>
+                <td>{{.Amount}}</td>
+                <td>${{.Price}}</td>
+                <td>
+                    <button type="submit" name="modify" value="{{.ID}}">Modify</button>
+                    <button type="submit" name="update" value="{{.ID}}">Update</button>
+                </td>
+            </tr>
+            {{end}}
+        </table>
+        <div>
+            <button type="submit" name="prev">Prev</button>
+            <button type="submit" name="next">Next</button>
+        </div>
+    </form>
+</body>
+
+</html>
